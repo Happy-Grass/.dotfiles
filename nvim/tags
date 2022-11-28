@@ -1,0 +1,23 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+before 	lua/lsp/lsp-ui.lua	/^      before = function (entry, vim_item)$/;"	f
+click_support 	lua/lsp/lsp-ui.lua	/^			click_support = function(node, clicks, button, modifiers)$/;"	f
+diagnostics_indicator 	lua/plugin-config/bufferline.lua	/^    diagnostics_indicator = function(count, level, diagnostics_dict, context)$/;"	f
+expand 	lua/lsp/nvim-cmp.lua	/^    expand = function(args)$/;"	f
+if vim.api.nvim_call_function('has', {'nvim-0.5'}) ~	plugin/packer_compiled.lua	/^if vim.api.nvim_call_function('has', {'nvim-0.5'}) ~= 1 then$/;"	f
+keymap('n', '<leader>f', function() vim.lsp.buf.format { async 	lua/keybindings.lua	/^	keymap('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)$/;"	f
+local feedkey 	lua/keybindings.lua	/^	local feedkey = function(key, mode)$/;"	f
+local has_words_before 	lua/keybindings.lua	/^	local has_words_before = function()$/;"	f
+local no_errors, error_msg 	plugin/packer_compiled.lua	/^local no_errors, error_msg = pcall(function()$/;"	f
+local on_attach 	lua/lsp/lsp-config.lua	/^local on_attach = function(client, bufnr)$/;"	f
+open_fn 	lua/plugins.lua	/^		open_fn = function()$/;"	f
+pluginKeys.cmp 	lua/keybindings.lua	/^pluginKeys.cmp = function(cmp)$/;"	f
+pluginKeys.mapLSP 	lua/keybindings.lua	/^pluginKeys.mapLSP = function(bufopts)$/;"	f
+save_profiles	plugin/packer_compiled.lua	/^local function save_profiles(threshold)$/;"	f
+time 	plugin/packer_compiled.lua	/^  time = function(chunk, start) end$/;"	f
+time 	plugin/packer_compiled.lua	/^  time = function(chunk, start)$/;"	f
+try_loadstring	plugin/packer_compiled.lua	/^local function try_loadstring(s, component, name)$/;"	f
