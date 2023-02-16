@@ -1,11 +1,11 @@
--- 自动安装 Packer.nvim
--- 插件安装目录
+-- auto install Packer.nvim
+-- plugin directory
 -- ~/.local/share/nvim/site/pack/packer/
 local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 local packer_bootstrap
 if fn.empty(fn.glob(install_path)) > 0 then
-  vim.notify("正在安装Pakcer.nvim，请稍后...")
+  vim.notify("Installing Pakcer.nvim，Waiting...")
   packer_bootstrap = fn.system({
     "git",
     "clone",
@@ -21,13 +21,13 @@ if fn.empty(fn.glob(install_path)) > 0 then
   if not string.find(vim.o.runtimepath, rtp_addition) then
     vim.o.runtimepath = rtp_addition .. "," .. vim.o.runtimepath
   end
-  vim.notify("Pakcer.nvim 安装完毕")
+  vim.notify("Pakcer.nvim has installed")
 end
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
-  vim.notify("没有安装 packer.nvim")
+  vim.notify("packer.nvim not found!")
   return
 end
 
@@ -37,6 +37,7 @@ packer.startup({
 		use("folke/tokyonight.nvim")
 		use({"akinsho/bufferline.nvim", requires = {"kyazdani42/nvim-web-devicons", "moll/vim-bbye"}})
 		use({"nvim-lualine/lualine.nvim", requires = {"kyazdani42/nvim-web-devicons"}})
+		use({"ggandor/flit.nvim", requires = {"ggandor/leap.nvim"}})
 		---------LSP----------
 		use("williamboman/mason.nvim")
 		use("williamboman/mason-lspconfig.nvim")
@@ -57,6 +58,10 @@ packer.startup({
 		use("rcarriga/nvim-dap-ui")
 		---------Treesitter----------
 		use({"nvim-treesitter/nvim-treesitter", run=":TSUpdate"})
+		use("lervag/vimtex")
+        use("mfussenegger/nvim-lint")
+        use("mhartington/formatter.nvim")
+        use("lewis6991/gitsigns.nvim")
 	end,
 	config = {
 		display = {
@@ -67,4 +72,10 @@ packer.startup({
 },
 })
 
-require("plugin-config.nvim-treesitter")
+----------Config----------
+require("plugin-config/nvim-treesitter")
+require("plugin-config/leap")
+require("plugin-config/vimtex")
+require("plugin-config/nvim-lint")
+require("plugin-config/nvim-formatter")
+require("plugin-config/gitsigns")

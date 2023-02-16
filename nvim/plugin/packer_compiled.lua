@@ -109,10 +109,30 @@ _G.packer_plugins = {
     path = "/home/xfw/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
+  ["flit.nvim"] = {
+    loaded = true,
+    path = "/home/xfw/.local/share/nvim/site/pack/packer/start/flit.nvim",
+    url = "https://github.com/ggandor/flit.nvim"
+  },
+  ["formatter.nvim"] = {
+    loaded = true,
+    path = "/home/xfw/.local/share/nvim/site/pack/packer/start/formatter.nvim",
+    url = "https://github.com/mhartington/formatter.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/xfw/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
+  },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/home/xfw/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
+  ["leap.nvim"] = {
+    loaded = true,
+    path = "/home/xfw/.local/share/nvim/site/pack/packer/start/leap.nvim",
+    url = "https://github.com/ggandor/leap.nvim"
   },
   ["lspkind-nvim"] = {
     loaded = true,
@@ -154,6 +174,11 @@ _G.packer_plugins = {
     path = "/home/xfw/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
     url = "https://github.com/rcarriga/nvim-dap-ui"
   },
+  ["nvim-lint"] = {
+    loaded = true,
+    path = "/home/xfw/.local/share/nvim/site/pack/packer/start/nvim-lint",
+    url = "https://github.com/mfussenegger/nvim-lint"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/xfw/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -188,6 +213,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/xfw/.local/share/nvim/site/pack/packer/start/vim-vsnip",
     url = "https://github.com/hrsh7th/vim-vsnip"
+  },
+  vimtex = {
+    loaded = true,
+    path = "/home/xfw/.local/share/nvim/site/pack/packer/start/vimtex",
+    url = "https://github.com/lervag/vimtex"
   }
 }
 

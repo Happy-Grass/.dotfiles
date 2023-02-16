@@ -28,7 +28,7 @@ require('lspconfig')['clangd'].setup{
 		on_attach = on_attach,
 		flags = lsp_flags,
 }
-require('lspconfig')['sumneko_lua'].setup{
+require('lspconfig')['lua_ls'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }
@@ -39,4 +39,12 @@ require('lspconfig')['rust_analyzer'].setup{
     settings = {
       ["rust-analyzer"] = {}
     }
+}
+require('lspconfig').yamlls.setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
+require('lspconfig').texlab.setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
 }

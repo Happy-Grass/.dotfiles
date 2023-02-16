@@ -6,8 +6,9 @@ vim.o.hidden = true
 vim.o.wrap = false  -- disable automatic wraping line
 vim.o.autoindent = true  -- autoindent
 vim.o.smartindent = true
-
 vim.o.tabstop = 4
+vim.o.softtabstop=4
+vim.o.shiftwidth=4
 vim.o.hlsearch = true  -- disable hignlighting when searching
 vim.o.incsearch = true  --search when typing
 -- cancel auto comment
