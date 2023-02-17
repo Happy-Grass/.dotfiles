@@ -5,17 +5,11 @@ if not status then
 end
 
 treesitter.setup({
-    -- 安装 language parser
-    -- :TSInstallInfo 命令查看支持的语言
-    ensure_installed = { "json", "vim", "lua", "python", "latex", "markdown", "markdown_inline" },
-    -- ensure_installed = "maintained",
-
-    -- 启用代码高亮模块
+    ensure_installed = { "c", "cpp", "bash", "json", "vim", "lua", "python", "latex", "markdown", "markdown_inline" },
     highlight = {
         enable = true,
         additional_vim_regex_highlighting = false,
     },
-    -- 启用增量选择模块
     incremental_selection = {
         enable = true,
         keymaps = {
@@ -25,9 +19,8 @@ treesitter.setup({
             scope_incremental = "<TAB>",
         },
     },
-    -- 启用代码缩进模块 (=)
     indent = {
-        enable = true,
+        enable = false,
     },
 })
 -- 开启 Folding 模块

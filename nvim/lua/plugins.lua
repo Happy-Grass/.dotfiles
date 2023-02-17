@@ -62,6 +62,9 @@ packer.startup({
         use("mfussenegger/nvim-lint")
         use("mhartington/formatter.nvim")
         use("lewis6991/gitsigns.nvim")
+        ---------indent-------------
+        use("lukas-reineke/indent-blankline.nvim")
+
 	end,
 	config = {
 		display = {
@@ -79,3 +82,4 @@ require("plugin-config/vimtex")
 require("plugin-config/nvim-lint")
 require("plugin-config/nvim-formatter")
 require("plugin-config/gitsigns")
+require("plugin-config/indent-blankline")

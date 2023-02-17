@@ -17,7 +17,7 @@ def set_mpl_rcParams(**kwargs):
     """
     default_config = {
         "font.family": 'serif',
-        "font.size": 7,
+        "font.size": 10,
         "mathtext.fontset": 'stix',  # matplotlib渲染数学字体时使用的字体，和Times New Roman差别不大
         "font.serif": ['SimSun'],  # 宋体
         "axes.unicode_minus": False,  # 处理负号
