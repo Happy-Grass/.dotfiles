@@ -13,12 +13,7 @@ vim.api.nvim_create_autocmd({"BufReadPost"}, {
 	end
 })
 vim.api.nvim_create_autocmd({"FileType"},{
-    pattern = "python",
-    group = codepre,
-    command = "LspStart",
-})
-vim.api.nvim_create_autocmd({"FileType"},{
-    pattern = "lua",
+    pattern = {"python", "lua", "tex"},
     group = codepre,
     command = "LspStart",
 })
