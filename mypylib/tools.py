@@ -17,7 +17,7 @@ def set_mpl_rcParams(**kwargs):
     """
     default_config = {
         "font.family": 'serif',
-        "font.size": 10,
+        "font.size": 7,
         "mathtext.fontset": 'stix',  # matplotlib渲染数学字体时使用的字体，和Times New Roman差别不大
         "font.serif": ['SimSun'],  # 宋体
         "axes.unicode_minus": False,  # 处理负号
@@ -37,3 +37,9 @@ def set_mpl_rcParams(**kwargs):
         default_config[k] = v
     rcParams.update(default_config)
     return
+
+def get_color_list(name):
+    color = {
+        'default':['#FA7F6F', '#FFBE7A', '#8ECFC9', '#82B0D2']
+            } 
+    return color[name]

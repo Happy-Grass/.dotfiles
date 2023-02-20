@@ -3,7 +3,7 @@ local codepre = vim.api.nvim_create_augroup("CODEPRE", {clear = true})
 vim.api.nvim_create_autocmd({"BufWritePost"}, {
 	pattern = "init.lua",
 	group = nvimrc,
-	command = "source %",
+	command = "luafile%",
 })
 vim.api.nvim_create_autocmd({"BufReadPost"}, {
 	pattern = "init.lua",

@@ -1,6 +1,6 @@
 vim.wo.number = true
 vim.wo.numberwidth = 4
-vim.wo.relativenumber = true
+vim.wo.relativenumber = false
 vim.wo.cursorline = true
 vim.o.wildmenu = true
 vim.o.wildmode = "full:lastused"

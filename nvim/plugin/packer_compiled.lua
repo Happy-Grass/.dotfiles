@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["ChatGPT.nvim"] = {
+    loaded = true,
+    path = "/home/xfw/.local/share/nvim/site/pack/packer/start/ChatGPT.nvim",
+    url = "https://github.com/jackMort/ChatGPT.nvim"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/xfw/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -164,6 +169,11 @@ _G.packer_plugins = {
     path = "/home/xfw/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/home/xfw/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/xfw/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -189,6 +199,11 @@ _G.packer_plugins = {
     path = "/home/xfw/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-tree.lua"] = {
+    loaded = true,
+    path = "/home/xfw/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/nvim-tree/nvim-tree.lua"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/xfw/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
@@ -203,6 +218,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/xfw/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["plenary.nvim"] = {
+    loaded = true,
+    path = "/home/xfw/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["telescope.nvim"] = {
+    loaded = true,
+    path = "/home/xfw/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["tokyonight.nvim"] = {
     loaded = true,

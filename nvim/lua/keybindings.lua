@@ -23,7 +23,7 @@ map("n", "H", "^", opt)
 
 -- edit my vimrc
 map("n", "<leader>ev", ":split $MYVIMRC<cr>", opt)
-map("n", "<leader>sv", ":source $MYVIMRC<cr>", opt)
+map("n", "<leader>sv", ":luafile $MYVIMRC<cr>", opt)
 ------------------------------Enhance Editing------------------------------
 map("n", '-', "ddp", opt) -- move line down
 map("n", '_', 'ddkP', opt) -- move line up
