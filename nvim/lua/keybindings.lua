@@ -1,11 +1,3 @@
--- Modes
--- normal_mode = "n"
--- insert_mode = "i"
--- visual_mode = "v"
--- visual_block_mode = "x"
--- term_mode = "t"
--- command_mode = "c"
-
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
@@ -14,20 +6,24 @@ local bufopt = { noremap = true, silent = true, buffer = bufnr }
 local map = vim.keymap.set
 local pluginKeys = {}
 
--- important keybindings
+------------------------------Basic Keymap------------------------------
 map("i", "jk", "<esc>", opt)
-map("i", "<esc>", "<nop>", opt)
--- quickly jump to the line prefix, the end of line
-map("n", "L", "$", opt)
+map("n", "L", "$", opt) -- quickly jump to the line prefix, the end of line
 map("n", "H", "^", opt)
-
--- edit my vimrc
+map("n", "<c-u>", "9k", opt)
+map("n", "<c-d>", "9j", opt)
 map("n", "<leader>ev", ":split $MYVIMRC<cr>", opt)
 map("n", "<leader>sv", ":luafile $MYVIMRC<cr>", opt)
-------------------------------Enhance Editing------------------------------
 map("n", '-', "ddp", opt) -- move line down
 map("n", '_', 'ddkP', opt) -- move line up
--- add "",'', [],(), to a word
+map("v", "J", ":move '>+1<cr>gv-gv", opt)
+map("v", "K", ":move '<-2<cr>gv-gv", opt)
+map("i", "<c-j>", "<esc>o", { noremap = true })
+map("i", "<c-k>", "<esc>O", { noremap = true })
+map("i", "<c-u>", "<esc>gUiwea", opt) -- Let the Word be UpperCase
+
+------------------------------Enhance Edit------------------------------
+------------ Add pairs "",'', [],(), to a word
 map("n", '<leader>"', 'viw<esc>a"<esc>bi"<esc>lel', opt)
 map("i", '<leader>"', '<esc>viw<esc>a"<esc>bi"<esc>lela', opt)
 map("n", '<leader>(', 'viw<esc>a)<esc>bi(<esc>lel', opt)
@@ -40,25 +36,27 @@ map("n", '<leader>{', 'viw<esc>a}<esc>bi{<esc>lel', opt)
 map("i", "<leader>{", '<esc>viw<esc>a}<esc>bi{<esc>lela', opt)
 map("n", "<leader>'", "viw<esc>a'<esc>bi'<esc>lel", opt)
 map("i", "<leader>'", "<esc>viw<esc>a'<esc>bi'<esc>lela", opt)
-map("v", "J", ":move '>+1<cr>gv-gv", opt)
-map("v", "K", ":move '<-2<cr>gv-gv", opt)
-map("i", "<c-j>", "<esc>o", { noremap = true })
-map("i", "<c-k>", "<esc>O", { noremap = true })
--- add '' to a block
--- map("v", "<leader>'", "`<i`>a'<esc>", opt)
-map("i", "<c-u>", "<esc>gUiwea", opt) -- Let the Word be UpperCase
-------------------------------Switch buffer------------------------------
+------------ Add pairs ',",[,(,{,< to a block
+map("v", "<leader>'", "<esc>`<i'<esc>`>a'<esc>", opt)
+map("v", '<leader>"', '<esc>`<i"<esc>`>a"<esc>', opt)
+map("v", "<leader>{", "<esc>`<i{<esc>`>a}<esc>", opt)
+map("v", "<leader>(", "<esc>`<i(<esc>`>a)<esc>", opt)
+map("v", "<leader>[", "<esc>`<i[<esc>`>a]<esc>", opt)
+map("v", "<leader><", "<esc>`<i<<esc>`>a><esc>", opt)
+
+------------------------------Switch Buffer------------------------------
 map("n", "[b", ":bprevious<cr>", opt)
 map("n", "]b", ":bnext<cr>", opt)
 map("n", "[B", ":bfirst<cr>", opt)
 map("n", "]B", ":blast<cr>", opt)
 ------------------------------Page Up and Down------------------------------
+------------ Add pairs "",'', [],(), to a word
+--没用了好像
 map("c", "<c-p>", "<up>", opt)
 map("c", "<c-n>", "<down>", opt)
-------------------------------Run-code------------------------------
-map("n", "<F5>", "<cmd>!python3 %<cr>", opt)
+map("n", "<leader>m", ":NvimTreeToggle<cr>", opt)
 
-------------------------------Plugin Keys------------------------------
+------------------------------Plugin keys------------------------------
 -- nvim-cmp 自动补全
 pluginKeys.cmp = function(cmp)
     local feedkey = function(key, mode)
@@ -90,12 +88,12 @@ pluginKeys.cmp = function(cmp)
         ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs( -4), { "i", "c" }),
         ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
         -- snippets 跳转
-        ["<C-l>"] = cmp.mapping(function(_)
+        ["<A-l>"] = cmp.mapping(function(_)
             if vim.fn["vsnip#available"](1) == 1 then
                 feedkey("<Plug>(vsnip-expand-or-jump)", "")
             end
         end, { "i", "s" }),
-        ["<C-h>"] = cmp.mapping(function()
+        ["<A-h>"] = cmp.mapping(function()
             if vim.fn["vsnip#jumpable"]( -1) == 1 then
                 feedkey("<Plug>(vsnip-jump-prev)", "")
             end

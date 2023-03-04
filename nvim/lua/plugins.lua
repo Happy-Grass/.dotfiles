@@ -1,37 +1,17 @@
--- auto install Packer.nvim
--- plugin directory
--- ~/.local/share/nvim/site/pack/packer/
-local fn = vim.fn
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-local packer_bootstrap
-if fn.empty(fn.glob(install_path)) > 0 then
-    vim.notify("Installing Pakcer.nvim，Waiting...")
-    packer_bootstrap = fn.system({
-            "git",
-            "clone",
-            "--depth",
-            "1",
-            "https://github.com/wbthomason/packer.nvim",
-            -- "https://gitcode.net/mirrors/wbthomason/packer.nvim",
-            install_path,
-        })
-
-    -- https://github.com/wbthomason/packer.nvim/issues/750
-    local rtp_addition = vim.fn.stdpath("data") .. "/site/pack/*/start/*"
-    if not string.find(vim.o.runtimepath, rtp_addition) then
-        vim.o.runtimepath = rtp_addition .. "," .. vim.o.runtimepath
+local ensure_packer = function()
+    local fn = vim.fn
+    local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+    if fn.empty(fn.glob(install_path)) > 0 then
+        fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+        vim.cmd [[packadd packer.nvim]]
+        return true
     end
-    vim.notify("Pakcer.nvim has installed")
+    return false
 end
 
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-    vim.notify("packer.nvim not found!")
-    return
-end
+local packer_bootstrap = ensure_packer()
 
-packer.startup({
+require('packer').startup({
     function(use)
         use("wbthomason/packer.nvim")
         use("folke/tokyonight.nvim")
@@ -80,6 +60,9 @@ packer.startup({
                 "nvim-telescope/telescope.nvim"
             }
         })
+        if packer_bootstrap then
+            require('packer').sync()
+        end
     end,
     config = {
         display = {
