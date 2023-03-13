@@ -13,7 +13,7 @@ def adjacent_values(vals, q1, q3):
     return lower_adjacent_value, upper_adjacent_value
 
 
-def violin_plot(data, ax, colors=[], labels=[]):
+def violin_plot(data, ax, colors=[], labels=[], linestyles=None):
     """
     @description  :
     plot a violingraph
@@ -36,6 +36,9 @@ def violin_plot(data, ax, colors=[], labels=[]):
         pc.set_edgecolor('k')
         pc.set_linewidth(0.1)
         pc.set_alpha(1)
+    if linestyles != None:
+        for pc, ls in zip(parts['bodies'], linestyles):
+            pc.set_linestyle(ls)
 
     # 获取四分之一位距，四分之三位矩，中位数,并分别存入quartile1, medians, quartiles3向量
     loc = np.percentile(data[0], [25, 50, 75])
@@ -59,3 +62,13 @@ def violin_plot(data, ax, colors=[], labels=[]):
     ax.set_xticks(np.arange(1, len(medians) + 1))
     ax.set_xlim(0.25, len(medians) + 0.75)
     ax.set_xticklabels(labels=labels)
+
+
+def errorbar( Data, ax, x=None, **kwargs):
+    if  x is None:
+        x = range(len(Data))
+    ave = [np.mean(data) for data in Data]
+    sigma = [np.std(data) for data in Data]
+    patch = ax.bar(x=x, height=ave, yerr=[[0] * len(sigma), sigma], **kwargs)
+
+    return patch

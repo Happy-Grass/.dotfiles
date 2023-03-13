@@ -9,7 +9,7 @@ vim.o.showtabline = 2  -- always show tabline
 vim.o.showmode = false -- donot need the info when use a plugin
 
 vim.o.splitright=true
-vim.o.splitbelow=true
+--vim.o.splitbelow=true
 vim.o.termguicolors=true
 vim.o.signcolumn="yes"
 

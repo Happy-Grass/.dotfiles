@@ -5,11 +5,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
 alias cat='bat'
-alias ls='ls --color=auto'
+alias ls='exa --icons'
 alias ex='explorer.exe'
 alias jupyter='nohup jupyter notebook >> ~/Log/jupyter.log&'
 
@@ -21,9 +18,13 @@ export DISPLAY=:0.0
 export MANPATH=${MANPATH}:/usr/local/texlive/2022/texmf-dist/doc/man
 export INFOPATH=${INFOPATH}:/usr/local/texlive/2022/texmf-dist/doc/info
 export PATH=${PATH}:/usr/local/texlive/2022/bin/x86_64-linux
+export PATH=${PATH}:/home/xfw/.cargo/bin
+export PATH=/opt/mpich/bin:$PATH
+export LD_LIBRARY_PATH=/opt/mpich/lib:$LD_LIBRARY_PATH
 # use ctrl x + ctrl e to open the nvim then we can edit the command with nvim
 export EDITOR=nvim
-export OPENAI_API_KEY=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
+export OPENAI_API_KEY=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
+# export OPENAI_API_KEY=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
 # proxy on
 function proxy_on(){
 	ipaddr=$(ip route | grep default | awk '{print $3}')

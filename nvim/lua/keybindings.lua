@@ -55,6 +55,10 @@ map("n", "]B", ":blast<cr>", opt)
 map("c", "<c-p>", "<up>", opt)
 map("c", "<c-n>", "<down>", opt)
 map("n", "<leader>m", ":NvimTreeToggle<cr>", opt)
+------------------------------Session Manager------------------------------
+map("n", "<leader>ml", ":SessionManager load_session<cr>", opt)
+map("n", "<leader>md", ":SessionManager delete_session<cr>", opt)
+map("n", "<leader>ms", ":SessionManager save_current_session<cr>", opt)
 
 ------------------------------Plugin keys------------------------------
 -- nvim-cmp 自动补全

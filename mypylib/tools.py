@@ -1,4 +1,5 @@
 from matplotlib import rcParams
+from prettytable import PrettyTable
 
 
 def cm2inch(inch_list: list):
@@ -41,5 +42,22 @@ def set_mpl_rcParams(**kwargs):
 def get_color_list(name):
     color = {
         'default':['#FA7F6F', '#FFBE7A', '#8ECFC9', '#82B0D2']
-            } 
+            }
     return color[name]
+
+# print DataFrame
+def printdf(df):
+    column_names = df.columns
+    index_names = df.index.names
+    index_values = df.index.values
+    table = PrettyTable()
+    if index_names[0] is None:
+        table.add_column('Index', df.index.values)
+    else:
+        for index, value in zip(index_names, zip(*index_values)):
+            table.add_column(index, value)
+    if len(column_names): 
+        for column_name in column_names:
+            table.add_column(column_name, df[column_name].values)
+    print(table)
+    return

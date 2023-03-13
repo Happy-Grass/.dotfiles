@@ -9,7 +9,8 @@ vim.o.smartindent = true
 vim.o.tabstop = 4
 vim.o.softtabstop=4
 vim.o.shiftwidth=4
-vim.o.hlsearch = true  -- disable hignlighting when searching
+vim.o.hlsearch = false  -- disable hignlighting when searching
 vim.o.incsearch = true  --search when typing
+vim.o.mousemodel = extend
 -- cancel auto comment
 vim.opt_local.formatoptions = vim.opt_local.formatoptions - {"r", "c", "o"}
