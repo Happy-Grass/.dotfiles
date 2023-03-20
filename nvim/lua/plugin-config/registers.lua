@@ -16,13 +16,17 @@ return function()
 		-- Show a character next to the register name indicating how the register will be applied
 		show_register_types = true,
 		bind_keys = {
-			-- Show the window when pressing " in normal mode, applying the selected register as part of a motion, which is the default behavior of Neovim
+			-- Show the window when pressing " in normal mode, applying the
+			--selected register as part of a motion, which is the default behavior of Neovim
 			normal = registers.show_window({ mode = "motion" }),
-			-- Show the window when pressing " in visual mode, applying the selected register as part of a motion, which is the default behavior of Neovim
+			-- Show the window when pressing " in visual mode, applying the selected
+			-- register as part of a motion, which is the default behavior of Neovim
 			visual = registers.show_window({ mode = "motion" }),
-			-- Show the window when pressing <C-R> in insert mode, inserting the selected register, which is the default behavior of Neovim
+			-- Show the window when pressing <C-R> in insert mode,
+			--inserting the selected register, which is the default behavior of Neovim
 			insert = registers.show_window({ mode = "insert" }),
-			-- When pressing the key of a register, apply it with a very small delay, which will also highlight the selected register
+			-- When pressing the key of a register, apply it with a very small delay,
+			--which will also highlight the selected register
 			registers = registers.apply_register({ delay = 0.1 }),
 			-- Immediately apply the selected register line when pressing the return key
 			["<CR>"] = registers.apply_register(),
