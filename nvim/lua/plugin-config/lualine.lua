@@ -5,7 +5,7 @@ if not status then
 end
 local config = {
 	options = {
-		theme = "tokyonight",
+		theme = "auto",
 		height = 1,
 		component_separators = {
 			left = "",
