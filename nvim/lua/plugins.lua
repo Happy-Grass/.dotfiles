@@ -23,7 +23,7 @@ require("packer").startup({
 			"nvim-lualine/lualine.nvim",
 			requires = { "kyazdani42/nvim-web-devicons" },
 		})
-        use ('arkav/lualine-lsp-progress')
+		use("arkav/lualine-lsp-progress")
 		use({
 			"nvim-tree/nvim-tree.lua",
 			requires = {
@@ -100,6 +100,26 @@ require("packer").startup({
 		use({
 			"NvChad/nvim-colorizer.lua",
 			config = require("plugin-config/colorizer"),
+		})
+		use({
+			"tversteeg/registers.nvim",
+			config = require("plugin-config/registers"),
+		})
+		use({
+			"AckslD/nvim-neoclip.lua",
+			requires = {
+				{ "kkharji/sqlite.lua", module = "sqlite" },
+				{ "nvim-telescope/telescope.nvim" },
+			},
+			config = require("plugin-config/neoclip"),
+		})
+		use({
+			"samodostal/image.nvim",
+			requires = {
+				"nvim-lua/plenary.nvim",
+				{ "m00qek/baleia.nvim", tag = "v1.2.0" },
+			},
+			config = require("plugin-config/image"),
 		})
 		if packer_bootstrap then
 			require("packer").sync()
