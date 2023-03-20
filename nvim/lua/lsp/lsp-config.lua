@@ -1,4 +1,4 @@
---没有的没加载
+--没有用的没加载
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 -- Use an on_attach function to only map the following keys

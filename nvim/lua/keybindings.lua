@@ -7,13 +7,12 @@ local map = vim.keymap.set
 local pluginKeys = {}
 
 ------------------------------Basic Keymap------------------------------
-map("i", "jk", "<esc>", opt)
 map("n", "L", "$", opt) -- quickly jump to the line prefix, the end of line
 map("n", "H", "^", opt)
 map("n", "<c-u>", "9k", opt)
 map("n", "<c-d>", "9j", opt)
-map("n", "<leader>ev", ":split $MYVIMRC<cr>", opt)
-map("n", "<leader>sv", ":luafile $MYVIMRC<cr>", opt)
+map("n", "<leader>sh", ":split<cr>", opt)
+map("n", "<leader>sv", ":vsplit<cr>", opt)
 map("n", "-", "ddp", opt) -- move line down
 map("n", "_", "ddkP", opt) -- move line up
 map("v", "J", ":move '>+1<cr>gv-gv", opt)

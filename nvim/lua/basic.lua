@@ -11,6 +11,8 @@ vim.o.softtabstop=4
 vim.o.shiftwidth=4
 vim.o.hlsearch = false  -- disable hignlighting when searching
 vim.o.incsearch = true  --search when typing
-vim.o.mousemodel = extend
+vim.o.mouse = ''
+vim.opt.shortmess:append({I =true})
+-- vim.o.mousemodel = extend
 -- cancel auto comment
 vim.opt_local.formatoptions = vim.opt_local.formatoptions - {"r", "c", "o"}

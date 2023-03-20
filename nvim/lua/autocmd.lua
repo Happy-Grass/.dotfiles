@@ -1,6 +1,7 @@
 local nvimrc = vim.api.nvim_create_augroup("NVIMRC", { clear = true })
 local codepre = vim.api.nvim_create_augroup("CODEPRE", { clear = true })
-local session = vim.api.nvim_create_augroup("SESSION", {})
+local session = vim.api.nvim_create_augroup("SESSION", {clear = true})
+local packer = vim.api.nvim_create_augroup("PACKER", {clear = true})
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     pattern = "init.lua",
     group = nvimrc,
@@ -34,4 +35,9 @@ vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
             require('session_manager').autosave_session()
         end
     end
+})
+vim.api.nvim_create_autocmd({"BufWritePost"}, {
+    pattern = "plugins.lua",
+    group = packer,
+    command = 'source <afile> | PackerCompile'
 })

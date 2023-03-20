@@ -13,9 +13,6 @@ local packer_bootstrap = ensure_packer()
 
 require("packer").startup({
 	function(use)
-		if packer_bootstrap then
-			require("packer").sync()
-		end
 		use("wbthomason/packer.nvim")
 		use("folke/tokyonight.nvim")
 		use({
@@ -26,6 +23,7 @@ require("packer").startup({
 			"nvim-lualine/lualine.nvim",
 			requires = { "kyazdani42/nvim-web-devicons" },
 		})
+        use ('arkav/lualine-lsp-progress')
 		use({
 			"nvim-tree/nvim-tree.lua",
 			requires = {
@@ -35,8 +33,8 @@ require("packer").startup({
 			tag = "nightly",
 		})
 		use({
-			"ggandor/flit.nvim",
-			requires = { "ggandor/leap.nvim" },
+			"ggandor/leap.nvim",
+			config = require("plugin-config/leap"),
 		})
 		---------LSP----------
 		use("williamboman/mason.nvim")
@@ -82,6 +80,14 @@ require("packer").startup({
 		use("nvim-lua/plenary.nvim")
 		use("nvim-telescope/telescope.nvim")
 		use("nvim-telescope/telescope-ui-select.nvim")
+		use({
+			"numToStr/Comment.nvim",
+			config = require("plugin-config/comment"),
+		})
+		use({
+			"kevinhwang91/nvim-bqf",
+			config = require("plugin-config/quickfix"),
+		})
 		---------chatgpt-------------
 		use({
 			"jackMort/ChatGPT.nvim",
@@ -91,6 +97,13 @@ require("packer").startup({
 				"nvim-telescope/telescope.nvim",
 			},
 		})
+		use({
+			"NvChad/nvim-colorizer.lua",
+			config = require("plugin-config/colorizer"),
+		})
+		if packer_bootstrap then
+			require("packer").sync()
+		end
 	end,
 	config = {
 		display = {
@@ -98,14 +111,16 @@ require("packer").startup({
 				return require("packer.util").float({ border = "single" })
 			end,
 		},
+		profile = {
+			enable = true,
+			threshold = 1,
+		},
 	},
 })
 
 ----------Config----------
-require("plugin-config/leap")
 require("plugin-config/vimtex")
 require("plugin-config/gitsigns")
-require("plugin-config/indent-blankline")
 require("plugin-config/chatgpt")
 require("plugin-config/telescope")
 require("plugin-config/marks")
