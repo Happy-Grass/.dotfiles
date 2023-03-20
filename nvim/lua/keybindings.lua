@@ -48,9 +48,9 @@ map("n", "[b", ":bprevious<cr>", opt)
 map("n", "]b", ":bnext<cr>", opt)
 map("n", "[B", ":bfirst<cr>", opt)
 map("n", "]B", ":blast<cr>", opt)
+map("n", "<leader>bd", ":bp | bd #<cr>", opt)
 ------------------------------Page Up and Down------------------------------
 ------------ Add pairs "",'', [],(), to a word
---没用了好像
 map("c", "<c-p>", "<up>", opt)
 map("c", "<c-n>", "<down>", opt)
 map("n", "<leader>m", ":NvimTreeToggle<cr>", opt)
@@ -58,9 +58,11 @@ map("n", "<leader>m", ":NvimTreeToggle<cr>", opt)
 map("n", "<leader>ml", ":SessionManager load_session<cr>", opt)
 map("n", "<leader>md", ":SessionManager delete_session<cr>", opt)
 map("n", "<leader>ms", ":SessionManager save_current_session<cr>", opt)
+------------------------------Neoclip------------------------------
+map("n", "<leader>cc", ":Telescope neoclip<cr>", opt)
+map("n", "<leader>q", ":Telescope macroscope<cr>", opt)
 
 ------------------------------Plugin keys------------------------------
--- nvim-cmp 自动补全
 pluginKeys.cmp = function(cmp)
 	local feedkey = function(key, mode)
 		vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
