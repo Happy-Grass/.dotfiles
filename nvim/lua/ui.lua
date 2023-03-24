@@ -7,6 +7,7 @@ vim.wo.cursorline = true
 
 vim.o.showtabline = 2 -- always show tabline
 vim.o.showmode = false -- donot need the info when use a plugin
+vim.o.cmdheight = 0
 
 vim.o.splitright = true
 --vim.o.splitbelow=true
