@@ -1,6 +1,6 @@
 local lspsaga = require("lspsaga")
 local lspkind = require("lspkind")
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = { Error = " ", Warn = " ", Hint = "󰌵 ", Info = " " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
@@ -10,7 +10,7 @@ vim.diagnostic.config({
 	signs = true,
 	update_in_insert = false,
 })
--- set the code hints icons
+
 lspkind.init({
 	mode = "symbol_text",
 	preset = "codicons",
@@ -87,7 +87,7 @@ lspsaga.setup({
 		show_server_name = false,
 		extend_gitsigns = true,
 		keys = {
-			quit = "q",
+			quit = { "q", "<esc>" },
 			exec = "<CR>",
 		},
 	},
@@ -158,11 +158,13 @@ lspsaga.setup({
 	},
 })
 local M = {}
+
 -- 为 cmp.lua 提供参数格式
 M.formatting = {
 	format = lspkind.cmp_format({
 		mode = "symbol_text",
 		maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+        maxheight = 20,
 		before = function(entry, vim_item)
 			-- Source 显示提示来源
 			vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"

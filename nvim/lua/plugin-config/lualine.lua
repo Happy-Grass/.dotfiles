@@ -31,11 +31,13 @@ local config = {
 	sections = {
 		lualine_a = { "mode" },
 		lualine_b = {
-			"location",
-			"progress",
 			"encoding",
 			"filesize",
-			"filename",
+			{
+				"diagnostics",
+				sources = { "nvim_diagnostic" },
+				symbols = { error = " ", warn = " ", info = " ", hint = "󰌵 " },
+			},
 		},
 		lualine_c = {},
 		lualine_x = {
@@ -49,7 +51,11 @@ local config = {
 			-- },
 		},
 		lualine_y = { "branch" },
-		lualine_z = { { "diff", symbols = { added = " ", modified = "柳 ", removed = " " } } },
+		lualine_z = {
+			{ "diff", symbols = { added = " ", modified = "柳 ", removed = " " } },
+			"progress",
+			"location",
+		},
 	},
 	inactive_sections = {
 		lualine_a = {},
@@ -73,9 +79,7 @@ local function ins_right(component)
 end
 
 ins_left({
-	"diagnostics",
-	sources = { "nvim_diagnostic" },
-	symbols = { error = " ", warn = " ", info = " " },
+	"filename",
 })
 -- ins_left({
 -- 	function()

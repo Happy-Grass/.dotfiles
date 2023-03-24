@@ -26,16 +26,16 @@ vim.api.nvim_create_autocmd({ 'User' }, {
         require('nvim-tree').toggle(false, true)
     end,
 })
-vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
-    group = session,
-    callback = function()
-        if vim.bo.filetype ~= 'git'
-            and not vim.bo.filetype ~= 'gitcommit'
-        then
-            require('session_manager').autosave_session()
-        end
-    end
-})
+-- vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
+--     group = session,
+--     callback = function()
+--         if vim.bo.filetype ~= 'git'
+--             and not vim.bo.filetype ~= 'gitcommit'
+--         then
+--             require('session_manager').autosave_session()
+--         end
+--     end
+-- })
 vim.api.nvim_create_autocmd({"BufWritePost"}, {
     pattern = "plugins.lua",
     group = packer,

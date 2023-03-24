@@ -17,8 +17,6 @@ map("n", "-", "ddp", opt) -- move line down
 map("n", "_", "ddkP", opt) -- move line up
 map("v", "J", ":move '>+1<cr>gv-gv", opt)
 map("v", "K", ":move '<-2<cr>gv-gv", opt)
-map("i", "<c-j>", "<esc>o", { noremap = true })
-map("i", "<c-k>", "<esc>O", { noremap = true })
 map("i", "<c-u>", "<esc>gUiwea", opt) -- Let the Word be UpperCase
 
 ------------------------------Enhance Edit------------------------------
@@ -78,53 +76,23 @@ pluginKeys.cmp = function(cmp)
 		-- next
 		["<C-n>"] = cmp.mapping.select_next_item(),
 		-- show cmp
-		["<A-.>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+		["<A-,>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 		-- hidde cmp
-		["<A-,>"] = cmp.mapping({
+		["<A-.>"] = cmp.mapping({
 			i = cmp.mapping.abort(),
 			c = cmp.mapping.close(),
 		}),
 		-- Accept currently selected item. If none selected, `select` first item.
-		["<CR>"] = cmp.mapping.confirm({
+		["<c-y>"] = cmp.mapping.confirm({
 			select = true,
 			behavior = cmp.ConfirmBehavior.Replace,
 		}),
 		-- ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
 		["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
 		["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-		-- snippets 跳转
-		["<A-l>"] = cmp.mapping(function(_)
-			if vim.fn["vsnip#available"](1) == 1 then
-				feedkey("<Plug>(vsnip-expand-or-jump)", "")
-			end
-		end, { "i", "s" }),
-		["<A-h>"] = cmp.mapping(function()
-			if vim.fn["vsnip#jumpable"](-1) == 1 then
-				feedkey("<Plug>(vsnip-jump-prev)", "")
-			end
-		end, { "i", "s" }),
-		-- super Tab
-		["<Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			elseif vim.fn["vsnip#available"](1) == 1 then
-				feedkey("<Plug>(vsnip-expand-or-jump)", "")
-			elseif has_words_before() then
-				cmp.complete()
-			else
-				fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
-			end
-		end, { "i", "s" }),
-		["<S-Tab>"] = cmp.mapping(function()
-			if cmp.visible() then
-				cmp.select_prev_item()
-			elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-				feedkey("<Plug>(vsnip-jump-prev)", "")
-			end
-		end, { "i", "s" }),
-		-- -- end of super Tab
 	}
 end
+
 
 --------------------------------format----------------------------------
 map("n", "<leader>f", ":lua vim.lsp.buf.format({async=true})<CR>", opt)

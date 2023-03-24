@@ -1,7 +1,7 @@
 return function()
 	require("neoclip").setup({
 		history = 1000,
-		enable_persistent_history = false,
+		enable_persistent_history = true,
 		length_limit = 1048576,
 		continuous_sync = false,
 		db_path = vim.fn.stdpath("data") .. "/databases/neoclip.sqlite3",
@@ -36,7 +36,7 @@ return function()
 					paste = "<c-p>",
 					paste_behind = "<c-k>",
 					replay = "<c-q>", -- replay a macro
-					delete = "<c-d>", -- delete an entry
+					delete = "<c-d>", --false delete an entry
 					edit = "<c-e>", -- edit an entry
 					custom = {},
 				},
@@ -60,4 +60,6 @@ return function()
 			},
 		},
 	})
+	require("telescope").load_extension("neoclip")
+	require("telescope").load_extension("macroscope")
 end

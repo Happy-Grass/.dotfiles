@@ -1,3 +1,2 @@
-vim.g.vimtex_view_general_viewer='zathura'
-vim.g.vimtex_compiler_method='latexrun'
+vim.o.wrap = true
 require("lsp/lsp-config/tex")

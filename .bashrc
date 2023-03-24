@@ -1,4 +1,3 @@
-#
 # ~/.bashrc
 #
 
@@ -9,8 +8,9 @@ alias cat='bat'
 alias ls='exa --icons'
 alias ex='explorer.exe'
 alias jupyter='nohup jupyter notebook >> ~/Log/jupyter.log&'
-
-export PS1='\[\033[01;35m\][\[\033[01;32m\]`echo $STY | cut -d . -f2`\h\[\033[01;31m\] \u \w\[\033[31m\]\[\033[01;35m\]]\[\033[01;36m\]\$\[\033[00m\] '
+export OPENAI_API_KEY=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
+# export PS1='[\[\e[01;05;32m\]\u\[\e[00m\]@\[\e[01;33m\]\h\[\e[00m\]:\[\e[01;34m\]\w\[\e[00m\]]\$ '
+export PS1=' \[\033[01;35m\][\[\033[01;32m\]`echo $STY | cut -d . -f2`\h\[\033[01;31m\] \u \w\[\033[31m\]\[\033[01;35m\]]\[\033[01;36m\]\$\[\033[00m\] '
 export PATH=$PATH:~/.local/bin/
 export BAT_THEME="OneHalfDark"
 export HOST=$(ip route | grep default | awk '{print $3}')
@@ -23,21 +23,19 @@ export PATH=/opt/mpich/bin:$PATH
 export LD_LIBRARY_PATH=/opt/mpich/lib:$LD_LIBRARY_PATH
 # use ctrl x + ctrl e to open the nvim then we can edit the command with nvim
 export EDITOR=nvim
-export OPENAI_API_KEY=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
-# export OPENAI_API_KEY=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
 # proxy on
 function proxy_on(){
-	ipaddr=$(ip route | grep default | awk '{print $3}')
-	export ALL_PROXY=$ipaddr:7890
-	export http_proxy=$ipaddr:7890
-	export https_proxy=$ipaddr:7890
-	echo -e "proxy has been set on"
+    ipaddr=$(ip route | grep default | awk '{print $3}')
+    export ALL_PROXY=$ipaddr:7890
+    export http_proxy=$ipaddr:7890
+    export https_proxy=$ipaddr:7890
+    echo -e "proxy has been set on"
 }
 
 # proxy_off
 function proxy_off(){
-	unset ALL_PROXY
-	unset http_proxy
-	unset https_proxy
-	echo -e "proxy has been set off"
+    unset ALL_PROXY
+    unset http_proxy
+    unset https_proxy
+    echo -e "proxy has been set off"
 }

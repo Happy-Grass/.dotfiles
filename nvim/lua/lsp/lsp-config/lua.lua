@@ -14,7 +14,7 @@ local on_attach = function(client, bufnr)
 end
 
 local lsp_flags = {
-    debounce_text_changes = 150,
+    debounce_text_changes = 10,
 }
 local root_files = {
     '.luarc.json',
