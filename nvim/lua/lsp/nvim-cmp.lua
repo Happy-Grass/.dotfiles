@@ -14,23 +14,29 @@ cmp.setup({
 		{ name = "nvim_lsp_signature_help" },
 		{ name = "buffer", max_item_count = 5 },
 		{ name = "path", max_item_count = 5 },
+		{
+			name = "latex_symbols",
+            max_item_count = 5,
+			option = { strategy = 0 },
+		},
 	}),
 	mapping = require("keybindings").cmp(cmp),
 	formatting = require("lsp.lsp-ui").formatting,
 })
 
+
 -- Use buffer source for `/`.
 cmp.setup.cmdline("/", {
 	sources = {
-		{ name = "buffer" },
+		{ name = "buffer", max_item_count = 5 },
 	},
 })
 
 -- Use cmdline & path source for ':'.
 cmp.setup.cmdline(":", {
 	sources = cmp.config.sources({
-		{ name = "path" },
+		{ name = "path", max_item_count = 5 },
 	}, {
-		{ name = "cmdline" },
+		{ name = "cmdline", max_item_count = 5 },
 	}),
 })
