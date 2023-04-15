@@ -3,6 +3,14 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+if [[ -z "$TMUX" ]] ;then
+    ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
+    if [[ -z "$ID" ]] ;then # if not available create a new one
+        tmux new-session -s basic
+    else
+        tmux attach-session -t "$ID" # if available attach to it
+    fi
+fi
 # some more ls aliases
 alias cat='bat'
 alias ls='exa --icons'
@@ -22,6 +30,7 @@ export PATH=/opt/mpich/bin:$PATH
 export LD_LIBRARY_PATH=/opt/mpich/lib:$LD_LIBRARY_PATH
 # use ctrl x + ctrl e to open the nvim then we can edit the command with nvim
 export EDITOR=nvim
+export TERM=xterm-256color
 # proxy on
 function proxy_on(){
     ipaddr=$(ip route | grep default | awk '{print $3}')
